@@ -65,8 +65,15 @@ router.get("/", (req, res) => {
 
 // show
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  res.send(`Dettagli del post: ${id}`);
+  // const post = posts.find((post) => {
+  // return post.id == req.params.id;
+  // });
+  // res.json(post);
+  const id = parseInt(req.params.id);
+  const post = posts.find((post) => {
+    return post.id === id;
+  });
+  res.json(post);
 });
 
 // store
